@@ -13,6 +13,23 @@ jobs:
     steps:
       - name: Build and Test
         run: echo "Your build and test goes here..."
+  security-scan:
+    runs-on: self-hosted
+    steps:
+      # - uses: actions/checkout@v4
+      - name: Security Scanner
+        run: echo "Your security scan goes here..."
+      - name: Transition Jira Issue
+        env:
+          JIRA_BASE_URL: "https://izeno-rovo.atlassian.net/"
+          JIRA_USER_EMAIL: "ary.suwandi@izeno.com"
+          JIRA_API_TOKEN: "ATATT3xFfGF0JpZn-OX5upjXTr3A8Z0IYPterkOYtx0qTBJnM67mwDYfkVUNJqF2c59bLSFDJBDzywVeElPsWnbrRyeOx2CfsBXYTGo7WEzQcFf367iil9y5Sw0Bfc61mJKyQgJaRapKojMYcJ1k7Jv9cSuBGaSOvD9J3z6wlvT_xzqn1HuxEPU=D3612BE4"
+        run: |
+          LAST_COMMIT_MESSAGE=$(git log -n 1 --pretty=format:%s ${{ github.sha }})
+          curl -X POST -H "Content-Type: application/json" \
+               -u "${JIRA_USER_EMAIL}:${JIRA_API_TOKEN}" \
+               "${JIRA_BASE_URL}/rest/api/3/issue/GITHUB-3/transitions" \
+               -d '{"transition": {"name": "In Progress"}}'
       # - name: Checkout code
       #   uses: actions/checkout@v2
 
