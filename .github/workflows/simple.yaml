@@ -27,8 +27,8 @@ jobs:
         # run:  echo "SECRET ${{ secrets.JIRA_API_TOKEN }}"
         run: |
           curl -X POST -H "Content-Type: application/json" \
-               -u "${JIRA_USER_EMAIL}:${JIRA_API_TOKEN}" \
-               "${JIRA_BASE_URL}/rest/api/3/issue/GITHUB-3/transitions" \
+               -u "ary.suwandi@izeno.com:ATATT3xFfGF0yWKsASkk0np01gDTS7Ca8vSsdiFKC_jfzjHQjDwL_plX0X-u1kbSZbry_JnxGwHfHxha9ecMYfXAEgsKE2YUkZB99m-t7L_V647AwuGr_hGHd_9UT7JvuYNsJqX1yxQM-ADaifcgnsvAerc5M2pgskG8bJZyjsTvi5FLQONBanQ=E1292D20" \
+               "https://izeno-rovo.atlassian.net/rest/api/3/issue/GITHUB-3/transitions" \
                -d '{"transition": {"name": "In Progress"}}'
       # - name: Checkout code
       #   uses: actions/checkout@v2
