@@ -24,8 +24,6 @@ jobs:
           JIRA_BASE_URL: ${{ secrets.JIRA_BASE_URL }}
           JIRA_USER_EMAIL: ${{ secrets.JIRA_USER_EMAIL }}
           JIRA_API_TOKEN: ${{ secrets.JIRA_API_TOKEN }}
-          # JIRA_BASE_URL: "https://izeno-rovo.atlassian.net/"
-          # JIRA_USER_EMAIL: "ary.suwandi@izeno.com"
         run: |
           LAST_COMMIT_MESSAGE=$(git log -n 1 --pretty=format:%s ${{ github.sha }})
           curl -X POST -H "Content-Type: application/json" \
