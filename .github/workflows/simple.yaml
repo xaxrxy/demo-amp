@@ -28,8 +28,7 @@ jobs:
           LAST_COMMIT_MESSAGE=$(git log -n 1 --pretty=format:%s ${{ github.sha }})
           curl -X POST -H "Content-Type: application/json" \
                -u "${JIRA_USER_EMAIL}:${JIRA_API_TOKEN}" \
-               "${JIRA_BASE_URL}/rest/api/3/issue/GITHUB-3/transitions" \
-               -d '{"transition": {"name": "In Progress"}}'
+               "${JIRA_BASE_URL}/rest/api/3/issue/GITHUB-3/transitions" -d '{"transition": {"name": "In Progress"}}'
       # - name: Checkout code
       #   uses: actions/checkout@v2
 
