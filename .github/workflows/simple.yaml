@@ -11,8 +11,17 @@ jobs:
   build:
     runs-on: self-hosted  # Use your self-hosted runner
     steps:
+      - uses: actions/checkout@v2
+      - name: Build and Test
+        run: echo "Your build and test goes here..."
       # - name: Checkout code
       #   uses: actions/checkout@v2
 
-      - name: Run a script
-        run: echo "Running on a self-hosted runner SIMPLE_YAML!"
+      # - name: Run a script
+      #   run: echo "Running on a self-hosted runner SIMPLE_YAML!"
+    # steps:
+    #   - name: 'Security scanner'
+    #       script:
+    #       - echo "Your security scan goes here..."
+    #       # - LAST_COMMIT_MESSAGE=$(git log -n 1 --pretty=format:%s $BITBUCKET_COMMIT)
+    #       - pipe: atlassian/jira-transition:0.2.4
