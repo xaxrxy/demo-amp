@@ -11,8 +11,8 @@ jobs:
   build:
     runs-on: self-hosted  # Use your self-hosted runner
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
+      # - name: Checkout code
+      #   uses: actions/checkout@v2
 
       - name: Run a script
         run: echo "Running on a self-hosted runner SIMPLE_YAML!"
