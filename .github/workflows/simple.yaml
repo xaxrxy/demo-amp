@@ -24,13 +24,13 @@ jobs:
           JIRA_BASE_URL: ${{ secrets.JIRA_BASE_URL }}
           JIRA_USER_EMAIL: ${{ secrets.JIRA_USER_EMAIL }}
           JIRA_API_TOKEN: ${{ secrets.JIRA_API_TOKEN }}
-        run:  echo "SECRET ${{ secrets.JIRA_API_TOKEN }}"
-        # run: |
-        #   LAST_COMMIT_MESSAGE=$(git log -n 1 --pretty=format:%s ${{ github.sha }})
-        #   curl -X POST -H "Content-Type: application/json" \
-        #        -u "${JIRA_USER_EMAIL}:${JIRA_API_TOKEN}" \
-        #        "${JIRA_BASE_URL}/rest/api/3/issue/GITHUB-3/transitions" \
-        #        -d '{"transition": {"name": "In Progress"}}'
+        # run:  echo "SECRET ${{ secrets.JIRA_API_TOKEN }}"
+        run: |
+          LAST_COMMIT_MESSAGE=$(git log -n 1 --pretty=format:%s ${{ github.sha }})
+          curl -X POST -H "Content-Type: application/json" \
+               -u "${{ secrets.JIRA_USER_EMAIL }}:${{ secrets.JIRA_API_TOKEN }}" \
+               "${{ secrets.JIRA_BASE_URL }}/rest/api/3/issue/GITHUB-3/transitions" \
+               -d '{"transition": {"name": "In Progress"}}'
       # - name: Checkout code
       #   uses: actions/checkout@v2
 
