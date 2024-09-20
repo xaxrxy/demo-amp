@@ -26,7 +26,7 @@ jobs:
           JIRA_API_TOKEN: ${{ secrets.JIRA_API_TOKEN }}
         # run:  echo "SECRET ${{ secrets.JIRA_API_TOKEN }}"
         run: |
-          curl -X GET -H "Content-Type: application/json" -u "ary.suwandi@izeno.com:ATATT3xFfGF0bS5kr_GhBXwjOsxyObMT-1faJKR8AthR3JAWE9D2YUcB1AiBmuYNLlyAiJM3eB_L-nK80h2D7cfqMv9_pxF7ne66qMKDzRIDCbTZM98gfhOa6Xt1JGXBrIeBBRVEWS7qvWtKhzFg71ufSvjgRYZ7h5o7Zc5foXK83iYDuuPUf6U=0E1C0C0B" "https://izeno-rovo.atlassian.net/rest/api/3/issue/GITHUB-3/transitions" -d "{\"transition\": {\"id\": \"31\"}}"
+          curl -X GET -H "Content-Type: application/json" -u "ary.suwandi@izeno.com:ATATT3xFfGF0bS5kr_GhBXwjOsxyObMT-1faJKR8AthR3JAWE9D2YUcB1AiBmuYNLlyAiJM3eB_L-nK80h2D7cfqMv9_pxF7ne66qMKDzRIDCbTZM98gfhOa6Xt1JGXBrIeBBRVEWS7qvWtKhzFg71ufSvjgRYZ7h5o7Zc5foXK83iYDuuPUf6U=0E1C0C0B" "https://izeno-rovo.atlassian.net/rest/api/3/issue/GITHUB-3/transitions"
         # run: |
         #   curl -request POST \
         #   --url "https://izeno-rovo.atlassian.net/rest/api/3/issue/GITHUB-3/transitions" \ 
