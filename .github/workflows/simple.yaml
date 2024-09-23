@@ -28,10 +28,35 @@ jobs:
         # run: |
         #   curl -X POST -H "Content-Type: application/json" --user "ary.suwandi@izeno.com:ATATT3xFfGF0bS5kr_GhBXwjOsxyObMT-1faJKR8AthR3JAWE9D2YUcB1AiBmuYNLlyAiJM3eB_L-nK80h2D7cfqMv9_pxF7ne66qMKDzRIDCbTZM98gfhOa6Xt1JGXBrIeBBRVEWS7qvWtKhzFg71ufSvjgRYZ7h5o7Zc5foXK83iYDuuPUf6U=0E1C0C0B" "https://izeno-rovo.atlassian.net/rest/api/3/issue/GITHUB-3/transitions" -d "{\"transition\": {\"id\": \"31\"}}"
         run: |
-          Invoke-WebRequest -Uri "${JIRA_BASE_URL}/rest/api/3/issue/${LAST_COMMIT_MESSAGE}/transitions" `
-            -Method POST `
-            -Headers @{"Content-Type"="application/json"} `
-            -Credential (New-Object PSCredential($JIRA_USER_EMAIL, (ConvertTo-SecureString $JIRA_API_TOKEN -AsPlainText -Force))) `
+          
+          $Username = "ary.suwandi@izeno.com"
+          $ApiToken = "ATATT3xFfGF0bS5kr_GhBXwjOsxyObMT-1faJKR8AthR3JAWE9D2YUcB1AiBmuYNLlyAiJM3eB_L-nK80h2D7cfqMv9_pxF7ne66qMKDzRIDCbTZM98gfhOa6Xt1JGXBrIeBBRVEWS7qvWtKhzFg71ufSvjgRYZ7h5o7Zc5foXK83iYDuuPUf6U=0E1C0C0B"
+
+          # base64 encoded string for jira auth format
+          $pair = "$($Username):$($ApiToken)"
+          $encodedAuth = [Convert]::ToBase64String([Text.Encoding]::ASCII.GetBytes($pair))
+
+          
+          $headers = @{
+              "Authorization" = "Basic $encodedAuth"
+              "Content-Type"  = "application/json"
+          }
+
+          
+          $body = @{
+              "transition" = @{
+                  "id" = "31"
+              }
+          }
+
+          
+          $bodyJson = $body | ConvertTo-Json
+
+          
+          Invoke-RestMethod -Uri "https://izeno-rovo.atlassian.net/rest/api/3/issue/GITHUB-3/transitions" `
+              -Method Post `
+              -Headers $headers `
+              -Body $bodyJson
       # - name: Checkout code
       #   uses: actions/checkout@v2
 
