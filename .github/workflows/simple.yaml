@@ -16,7 +16,7 @@ jobs:
       - name: Test run
         env:
           JIRA_BASE_URL: ${{ secrets.JIRA_BASE_URL }}
-        run: echo $JIRA_BASE_EMAIL
+        run: echo ${JIRA_BASE_EMAIL}
         if: ${{env.key1}} == 'aaa'
   security-scan:
     runs-on: self-hosted
