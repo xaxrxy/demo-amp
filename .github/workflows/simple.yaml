@@ -36,7 +36,7 @@ jobs:
         # run: |
         #   curl -X POST -H "Content-Type: application/json" --user "ary.suwandi@izeno.com:ATATT3xFfGF0bS5kr_GhBXwjOsxyObMT-1faJKR8AthR3JAWE9D2YUcB1AiBmuYNLlyAiJM3eB_L-nK80h2D7cfqMv9_pxF7ne66qMKDzRIDCbTZM98gfhOa6Xt1JGXBrIeBBRVEWS7qvWtKhzFg71ufSvjgRYZ7h5o7Zc5foXK83iYDuuPUf6U=0E1C0C0B" "https://izeno-rovo.atlassian.net/rest/api/3/issue/GITHUB-3/transitions" -d "{\"transition\": {\"id\": \"31\"}}"
         run: |
-          $LastCommit = $(git log -n 1 --pretty=format:%s ${{ github.sha }})
+          $LastCommit = ${{ github.event.commit[0].message }}
           $Username = "${{ secrets.JIRA_USER_EMAIL }}"
           $JiraIssue = "GITHUB-3"
           $ApiToken = "${{ secrets.JIRA_API_TOKEN }}"
