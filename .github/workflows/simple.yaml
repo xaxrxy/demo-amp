@@ -14,10 +14,9 @@ jobs:
       - name: Build and Test
         run: echo "Your build and test goes here..."
       - name: Test run
-        env:
-          JIRA_BASE_URL: ${{ secrets.JIRA_BASE_URL }}
-        run: echo ${JIRA_BASE_EMAIL}
-        if: ${{env.key1}} == 'aaa'
+        run: | 
+          $last_commit_message=$(git log -1 --pretty=%B)
+          echo "$last_commit_message"
   security-scan:
     runs-on: self-hosted
     steps:
