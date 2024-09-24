@@ -16,7 +16,7 @@ jobs:
       - name: Test run
         run: $last_commit_message=$(git log -1 --pretty=%B)
       - name: Show run
-        run: echo "$last_commit_message"
+        run: echo "$($last_commit_message)"
   security-scan:
     runs-on: self-hosted
     steps:
