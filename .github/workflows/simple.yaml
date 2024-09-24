@@ -14,9 +14,9 @@ jobs:
       - name: Build and Test
         run: echo "Your build and test goes here..."
       - name: Test run
-        run: $last_commit_message=$(git log -1 --pretty=%B)
-      - name: Show run
-        run: echo "$($last_commit_message)"
+        run: | 
+          $last_commit_message=$(git log -1 --pretty=%B)
+          echo "$($last_commit_message)"
   security-scan:
     runs-on: self-hosted
     steps:
