@@ -59,7 +59,7 @@ jobs:
           $bodyJson = $body | ConvertTo-Json
 
           
-          Invoke-RestMethod -Uri "https://izeno-rovo.atlassian.net/rest/api/3/issue/${JIRA_KEY}/transitions" `
+          Invoke-RestMethod -Uri "https://izeno-rovo.atlassian.net/rest/api/3/issue/$JIRA_KEY/transitions" `
               -Method Post `
               -Headers $headers `
               -Body $bodyJson
