@@ -21,7 +21,7 @@ jobs:
   security-scan:
     runs-on: self-hosted
     steps:
-      # - uses: actions/checkout@v4 new restart
+      # - uses: actions/checkout@v4 new restartt
       - name: Security Scanner
         run: echo "Your security scan goes here..."
       - name: Transition Jira Issue
