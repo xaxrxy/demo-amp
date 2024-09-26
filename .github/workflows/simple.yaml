@@ -15,7 +15,7 @@ jobs:
         run: echo "Your build and test goes here..."
       - name: Test run
         run: | 
-          $last_commit_message=$(git log -1 --pretty=%B)
+          $last_commit_message=${{ github.event.commit[1].message }}
           echo "$($last_commit_message)"
   security-scan:
     runs-on: self-hosted
