@@ -68,8 +68,8 @@ jobs:
   deploy-to-staging:
     needs: [build, security-scan]
     runs-on: self-hosted
-    environment: staging
-    if: github.event_name == 'workflow_dispatch'
+    # environment: staging
+    # if: github.event_name == 'workflow_dispatch'
     steps:
       # - uses: actions/checkout@v2
       - name: Deploy to Staging
