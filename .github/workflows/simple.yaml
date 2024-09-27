@@ -66,9 +66,15 @@ jobs:
               -Body $bodyJson
   # transition change to testing
   deploy-to-staging:
+    
     needs: [build, security-scan]
     runs-on: self-hosted
-    # environment: staging
+    environments:
+    - Development
+    - Production
+    services:
+      ids:
+      - b:YXJpOmNsb3VkOmdyYXBoOjpzZXJ2aWNlL2U5NGFkZWY5LTA3MTktNGJlMC1hYThlLWUxZWQ3N2E5NWQyOC83NTUyYTkxNi02YmQwLTExZWYtOTNiNC0xMjAxZjE2ZWQ0MWY=
     # if: github.event_name == 'workflow_dispatch'
     steps:
       # - uses: actions/checkout@v2
