@@ -60,7 +60,7 @@ jobs:
           $bodyJson = $body | ConvertTo-Json
 
           
-          Invoke-RestMethod -Uri "https://one-atlas-fvee.atlassian.net/rest/api/3/issue/$($JiraIssue)/transitions" `
+          Invoke-RestMethod -Uri "https://one-atlas-fvee.atlassian.net/rest/api/3/issue/MOBL-40/transitions" `
               -Method Post `
               -Headers $headers `
               -Body $bodyJson
@@ -105,7 +105,7 @@ jobs:
           $bodyJson = $body | ConvertTo-Json
 
           
-          Invoke-RestMethod -Uri "https://one-atlas-fvee.atlassian.net/rest/api/3/issue/$($JiraIssue)/transitions" `
+          Invoke-RestMethod -Uri "https://one-atlas-fvee.atlassian.net/rest/api/3/issue/MOBL-40/transitions" `
               -Method Post `
               -Headers $headers `
               -Body $bodyJson
