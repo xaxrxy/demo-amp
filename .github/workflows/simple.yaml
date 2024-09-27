@@ -52,7 +52,7 @@ jobs:
           
           $body = @{
               "transition" = @{
-                  "id" = "6"
+                  "id" = "21"
               }
           }
 
@@ -97,7 +97,7 @@ jobs:
           
           $body = @{
               "transition" = @{
-                  "id" = "12"
+                  "id" = "41"
               }
           }
 
